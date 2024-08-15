@@ -1,8 +1,8 @@
 from crewai import Agent
 from textwrap import dedent
 from langchain_openai import ChatOpenAI 
-from tools.search_tools import Search_tools
-from tools.calculator_tools import Calculator_tools
+from tools.search_tools import SearchTools
+from tools.calculator_tools import CalculatorTools
 
 """
 Creating Agents cheat Sheet: 
@@ -32,8 +32,8 @@ Creating Agents cheat Sheet:
 
 class TravelAgents:
     def __init__(self):
-        self.OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
-        # self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
+        # self.OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
+        self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
 
     def expert_travel_agent(self):
         return Agent(
@@ -46,10 +46,10 @@ class TravelAgents:
                         Create a 7 day trip itinerary with detailed per-day plans,
                          including budget, packing suggestions, and safety measures.
                         """),
-            tools=[Search_tools.search_interests, Calculator_tools.calculate],
+            tools=[SearchTools.search_internet, CalculatorTools.calculate],
             allow_delegation=False,
             verbose=True,
-            llm=self.OpenAIGPT35,
+            llm=self.OpenAIGPT4,
         )
 
     def city_selection_expert(self):
@@ -61,10 +61,10 @@ class TravelAgents:
             goal=dedent(f"""
                         Select the best cities based on weather, season, prizes, and travelers' preferences.
                         """),
-            tools=[Search_tools.search_internet],
+            tools=[SearchTools.search_internet],
             allow_delegation=False,
             verbose=True,
-            llm=self.OpenAIGPT35,
+            llm=self.OpenAIGPT4,
         )
     
     def local_tour_guide(self):
@@ -77,8 +77,8 @@ class TravelAgents:
             goal=dedent(f"""
                         Provide the BEST insights about the selected city
                         """),
-            tools=[Search_tools.search_internet],
+            tools=[SearchTools.search_internet],
             allow_delegation=False,
             verbose=True,
-            llm=self.OpenAIGPT35,
+            llm=self.OpenAIGPT4,
         )

@@ -1592,16 +1592,6 @@ files = [
 ]
 
 [[package]]
-name = "pytils"
-version = "0.4.1"
-description = "Russian-specific string utils"
-optional = false
-python-versions = "^3.7"
-files = [
-    {file = "pytils-0.4.1.tar.gz", hash = "sha256:aa109b1bc0ec4bdb7c9768520110348d8aeb0706600e6cf641272e6850e26eab"},
-]
-
-[[package]]
 name = "pyyaml"
 version = "6.0.2"
 description = "YAML parser and emitter for Python"
@@ -2095,21 +2085,6 @@ requests = ">=2.26.0"
 blobfile = ["blobfile (>=2)"]
 
 [[package]]
-name = "tools"
-version = "0.1.9"
-description = "Set of tools for web scraping projects"
-optional = false
-python-versions = "*"
-files = [
-    {file = "tools-0.1.9.tar.gz", hash = "sha256:7b7f998462cf5b02635fba76cc7cdb3653468aa46ff074b979dbecdb2a2fb014"},
-]
-
-[package.dependencies]
-lxml = "*"
-pytils = "*"
-six = "*"
-
-[[package]]
 name = "tqdm"
 version = "4.66.5"
 description = "Fast, Extensible Progress Meter"
@@ -2355,4 +2330,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10.0,<4.0"
-content-hash = "4ca1c181bf383a47329075e83b7c5be05695a557db9a0c6fa503ef811095cc5e"
+content-hash = "0113f6af96f66fcff6b416d7f9af83d64183617481f6890cf30dd59d029ad47f"
