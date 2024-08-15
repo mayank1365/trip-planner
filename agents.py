@@ -45,8 +45,8 @@ class CustomAgents:
                              I have decades of experience in making travel iteneraries.
                              """),
             goal=dedent(f"""
-                            Create a 7 day trip itinerary with detailed per-day plans,
-                            including budget, packing suggestions, and safety measures.
+                        Create a 7 day trip itinerary with detailed per-day plans,
+                         including budget, packing suggestions, and safety measures.
                         """),
             # tools=[tool_1, tool_2],
             allow_delegation=False,
