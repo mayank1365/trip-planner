@@ -35,3 +35,4 @@ class SearchTools():
                     next
 
             return '\n'.join(string)
+        

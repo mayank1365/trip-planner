@@ -92,3 +92,4 @@ if __name__ == "__main__":
     print("## Here is you Trip Plan")
     print("########################\n")
     print(result)
+    
