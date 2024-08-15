@@ -1,6 +1,6 @@
 from crewai import Agent
 from textwrap import dedent
-from langchain.llms import OpenAI, Ollama
+from langchain.llms import OpenAI
 from langchain_openai import ChatOpenAI 
 
 """
@@ -13,7 +13,7 @@ Creating Agents cheat Sheet:
 
     Goal: 
     - Create a 7 day trip itinerary with detailed per-day plans,
-        including budget, packing sturucture, and safety measures.
+        including budget, packing suggestions, and safety measures.
 
     Captain/Mangaer/Boss: 
     - Expert Travel Agent
@@ -35,14 +35,19 @@ Creating Agents cheat Sheet:
 class CustomAgents:
     def __init__(self):
         self.OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
-        self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
-        self.Ollama = Ollama(model="openhermes")
+        # self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
 
     def expert_travel_agent(self):
         return Agent(
-            role="Define agent 1 role here",
-            backstory=dedent(f"""Define agent 1 backstory here"""),
-            goal=dedent(f"""Define agent 1 goal here"""),
+            role="Expert Travel Agent",
+            backstory=dedent(f"""
+                            Expert in travel planning and logistics,
+                             I have decades of experience in making travel iteneraries.
+                             """),
+            goal=dedent(f"""
+                            Create a 7 day trip itinerary with detailed per-day plans,
+                            including budget, packing suggestions, and safety measures.
+                        """),
             # tools=[tool_1, tool_2],
             allow_delegation=False,
             verbose=True,
@@ -51,9 +56,13 @@ class CustomAgents:
 
     def city_selection_expert(self):
         return Agent(
-            role="Define agent 2 role here",
-            backstory=dedent(f"""Define agent 2 backstory here"""),
-            goal=dedent(f"""Define agent 2 goal here"""),
+            role="CIty Selection Expert",
+            backstory=dedent(f"""
+                            Expert at analyzing travel data to pick ideal destinations.
+                            """),
+            goal=dedent(f"""
+                        Select the best cities based on weather, season, prizes, and travelers' preferences.
+                        """),
             # tools=[tool_1, tool_2],
             allow_delegation=False,
             verbose=True,
@@ -62,9 +71,14 @@ class CustomAgents:
     
     def local_tour_guide(self):
         return Agent(
-            role="Define agent 2 role here",
-            backstory=dedent(f"""Define agent 2 backstory here"""),
-            goal=dedent(f"""Define agent 2 goal here"""),
+            role="Local Tour Guide",
+            backstory=dedent(f"""
+                            Knowlegable local guide with extensive information 
+                             about the city, its history, culture, and attractions.
+                            """),
+            goal=dedent(f"""
+                        Provide the BEST insights about the selected city
+                        """),
             # tools=[tool_1, tool_2],
             allow_delegation=False,
             verbose=True,
