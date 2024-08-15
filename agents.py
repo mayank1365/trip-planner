@@ -1,7 +1,8 @@
 from crewai import Agent
 from textwrap import dedent
-from langchain.llms import OpenAI
 from langchain_openai import ChatOpenAI 
+from tools.search_tools import Search_tools
+from tools.calculator_tools import Calculator_tools
 
 """
 Creating Agents cheat Sheet: 
@@ -29,10 +30,7 @@ Creating Agents cheat Sheet:
     - Backstory should be their resume
 """
 
-# This is an example of how to define custom agents.
-# You can define as many agents as you want.
-# You can also define custom tasks in tasks.py
-class CustomAgents:
+class TravelAgents:
     def __init__(self):
         self.OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
         # self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
@@ -48,7 +46,7 @@ class CustomAgents:
                         Create a 7 day trip itinerary with detailed per-day plans,
                          including budget, packing suggestions, and safety measures.
                         """),
-            # tools=[tool_1, tool_2],
+            tools=[Search_tools.search_interests, Calculator_tools.calculate],
             allow_delegation=False,
             verbose=True,
             llm=self.OpenAIGPT35,
@@ -63,7 +61,7 @@ class CustomAgents:
             goal=dedent(f"""
                         Select the best cities based on weather, season, prizes, and travelers' preferences.
                         """),
-            # tools=[tool_1, tool_2],
+            tools=[Search_tools.search_internet],
             allow_delegation=False,
             verbose=True,
             llm=self.OpenAIGPT35,
@@ -79,7 +77,7 @@ class CustomAgents:
             goal=dedent(f"""
                         Provide the BEST insights about the selected city
                         """),
-            # tools=[tool_1, tool_2],
+            tools=[Search_tools.search_internet],
             allow_delegation=False,
             verbose=True,
             llm=self.OpenAIGPT35,
