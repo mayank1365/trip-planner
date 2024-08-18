@@ -43,7 +43,7 @@ This tool helps you prepare a personalized 7-day itinerary by asking for your st
   - Travel from - Bangalore, India
   - Travel to - Thailand
   - Travel date - October
-  - sightseeing, hiking, eating, culture
+  - Interests and hobbies - sightseeing, hiking, eating, culture
 ```
 Day 1: Arrival in Bangkok. Visit the Grand Palace, Wat Pho, and Wat Arun to experience the local culture. Dine at a local restaurant.
 
